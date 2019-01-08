@@ -1,0 +1,25 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "nativeLanguage": "en"
+        },
+        "jhipsterVersion": "5.7.2",
+        "applicationType": "monolith",
+        "baseName": "Events",
+        "clientFramework": "angularX",
+        "useSass": true,
+        "clientPackageManager": "npm",
+        "authenticationType": "jwt",
+        "cacheProvider": "no",
+        "databaseType": "MariaDB",
+        "devDatabaseType": "MariaDB",
+        "prodDatabaseType": "MariaDB",
+        "testFrameworks": ["protractor"],
+        "jhiPrefix": "jhi",
+        "otherModules": [],
+        "enableTranslation": true,
+        "nativeLanguage": "en",
+        "languages": ["en", "de"],
+        "skipServer": true
+    }
+}
