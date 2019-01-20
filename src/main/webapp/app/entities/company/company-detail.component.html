@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="company">
+            <h2><span jhiTranslate="eventsApp.company.detail.title">Company</span> {{company.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eventsApp.company.name">Name</span></dt>
+                <dd>
+                    <span>{{company.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="eventsApp.company.address">Address</span></dt>
+                <dd>
+                    <span>{{company.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="eventsApp.company.city">City</span></dt>
+                <dd>
+                    <span>{{company.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="eventsApp.company.state">State</span></dt>
+                <dd>
+                    <span>{{company.state}}</span>
+                </dd>
+                <dt><span jhiTranslate="eventsApp.company.country">Country</span></dt>
+                <dd>
+                    <span>{{company.country}}</span>
+                </dd>
+                <dt><span jhiTranslate="eventsApp.company.phone">Phone</span></dt>
+                <dd>
+                    <span>{{company.phone}}</span>
+                </dd>
+                <dt><span jhiTranslate="eventsApp.company.longitude">Longitude</span></dt>
+                <dd>
+                    <span>{{company.longitude}}</span>
+                </dd>
+                <dt><span jhiTranslate="eventsApp.company.latitude">Latitude</span></dt>
+                <dd>
+                    <span>{{company.latitude}}</span>
+                </dd>
+                <dt><span jhiTranslate="eventsApp.company.tags">Tags</span></dt>
+                <dd>
+                    <span>{{company.tags}}</span>
+                </dd>
+                <dt><span jhiTranslate="eventsApp.company.description">Description</span></dt>
+                <dd>
+                    <span>{{company.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="eventsApp.company.event">Event</span></dt>
+                <dd>
+                    <span *ngFor="let event of company.events; let last = last">
+                        <a [routerLink]="['/event', event?.id, 'view' ]">{{event.name}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="eventsApp.company.user">User</span></dt>
+                <dd>
+                    {{company.user?.login}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/company', company.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
