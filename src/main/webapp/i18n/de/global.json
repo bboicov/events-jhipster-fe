@@ -9,6 +9,7 @@
                 "main": "Entitäten",
                 "company": "Company",
                 "event": "Event",
+                "config": "Config",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
