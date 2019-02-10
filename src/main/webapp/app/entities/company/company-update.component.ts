@@ -8,7 +8,10 @@ import { ICompany } from 'app/shared/model/company.model';
 import { CompanyService } from './company.service';
 import { IEvent } from 'app/shared/model/event.model';
 import { EventService } from 'app/entities/event';
-import { IUser, UserService } from 'app/core';
+import { IAddress } from 'app/shared/model/address.model';
+import { AddressService } from 'app/entities/address';
+import { ICompanyGroup } from 'app/shared/model/company-group.model';
+import { CompanyGroupService } from 'app/entities/company-group';
 
 @Component({
     selector: 'jhi-company-update',
@@ -20,13 +23,16 @@ export class CompanyUpdateComponent implements OnInit {
 
     events: IEvent[];
 
-    users: IUser[];
+    addresses: IAddress[];
+
+    companygroups: ICompanyGroup[];
 
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected companyService: CompanyService,
         protected eventService: EventService,
-        protected userService: UserService,
+        protected addressService: AddressService,
+        protected companyGroupService: CompanyGroupService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -41,9 +47,24 @@ export class CompanyUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.userService.query().subscribe(
-            (res: HttpResponse<IUser[]>) => {
-                this.users = res.body;
+        this.addressService.query({ filter: 'company-is-null' }).subscribe(
+            (res: HttpResponse<IAddress[]>) => {
+                if (!this.company.address || !this.company.address.id) {
+                    this.addresses = res.body;
+                } else {
+                    this.addressService.find(this.company.address.id).subscribe(
+                        (subRes: HttpResponse<IAddress>) => {
+                            this.addresses = [subRes.body].concat(res.body);
+                        },
+                        (subRes: HttpErrorResponse) => this.onError(subRes.message)
+                    );
+                }
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.companyGroupService.query().subscribe(
+            (res: HttpResponse<ICompanyGroup[]>) => {
+                this.companygroups = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -83,7 +104,11 @@ export class CompanyUpdateComponent implements OnInit {
         return item.id;
     }
 
-    trackUserById(index: number, item: IUser) {
+    trackAddressById(index: number, item: IAddress) {
+        return item.id;
+    }
+
+    trackCompanyGroupById(index: number, item: ICompanyGroup) {
         return item.id;
     }
 

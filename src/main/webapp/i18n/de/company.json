@@ -17,17 +17,11 @@
                 "title": "Company"
             },
             "name": "Name",
-            "address": "Address",
-            "city": "City",
-            "state": "State",
-            "country": "Country",
-            "phone": "Phone",
-            "longitude": "Longitude",
-            "latitude": "Latitude",
             "tags": "Tags",
             "description": "Description",
             "event": "Event",
-            "user": "User"
+            "address": "Address",
+            "companyGroup": "Company Group"
         }
     }
 }

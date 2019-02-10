@@ -31,17 +31,11 @@
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="eventsApp.company.name">Name</span></th>
-            <th><span jhiTranslate="eventsApp.company.address">Address</span></th>
-            <th><span jhiTranslate="eventsApp.company.city">City</span></th>
-            <th><span jhiTranslate="eventsApp.company.state">State</span></th>
-            <th><span jhiTranslate="eventsApp.company.country">Country</span></th>
-            <th><span jhiTranslate="eventsApp.company.phone">Phone</span></th>
-            <th><span jhiTranslate="eventsApp.company.longitude">Longitude</span></th>
-            <th><span jhiTranslate="eventsApp.company.latitude">Latitude</span></th>
             <th><span jhiTranslate="eventsApp.company.tags">Tags</span></th>
             <th><span jhiTranslate="eventsApp.company.description">Description</span></th>
             <th><span jhiTranslate="eventsApp.company.event">Event</span></th>
-            <th><span jhiTranslate="eventsApp.company.user">User</span></th>
+            <th><span jhiTranslate="eventsApp.company.address">Address</span></th>
+            <th><span jhiTranslate="eventsApp.company.companyGroup">Company Group</span></th>
             <th></th>
             </tr>
             </thead>
@@ -49,13 +43,6 @@
             <tr *ngFor="let company of companies ;trackBy: trackId">
                 <td><a [routerLink]="['/company', company.id, 'view' ]">{{company.id}}</a></td>
                 <td>{{company.name}}</td>
-                <td>{{company.address}}</td>
-                <td>{{company.city}}</td>
-                <td>{{company.state}}</td>
-                <td>{{company.country}}</td>
-                <td>{{company.phone}}</td>
-                <td>{{company.longitude}}</td>
-                <td>{{company.latitude}}</td>
                 <td>{{company.tags}}</td>
                 <td>{{company.description}}</td>
                 <td>
@@ -64,7 +51,14 @@
                         </span>
                 </td>
                 <td>
-                    {{company.user?.login}}
+                    <div *ngIf="company.address">
+                        <a [routerLink]="['../address', company.address?.id, 'view' ]" >{{company.address?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="company.companyGroup">
+                        <a [routerLink]="['../company-group', company.companyGroup?.id, 'view' ]" >{{company.companyGroup?.id}}</a>
+                    </div>
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

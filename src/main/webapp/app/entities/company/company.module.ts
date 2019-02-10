@@ -2,7 +2,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { EventsSharedModule } from 'app/shared';
-import { EventsAdminModule } from 'app/admin/admin.module';
 import {
     CompanyComponent,
     CompanyDetailComponent,
@@ -16,7 +15,7 @@ import {
 const ENTITY_STATES = [...companyRoute, ...companyPopupRoute];
 
 @NgModule({
-    imports: [EventsSharedModule, EventsAdminModule, RouterModule.forChild(ENTITY_STATES)],
+    imports: [EventsSharedModule, RouterModule.forChild(ENTITY_STATES)],
     declarations: [
         CompanyComponent,
         CompanyDetailComponent,

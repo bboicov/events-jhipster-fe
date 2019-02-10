@@ -4,24 +4,24 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
-import { CompanyService } from 'app/entities/company/company.service';
-import { ICompany, Company } from 'app/shared/model/company.model';
+import { AddressService } from 'app/entities/address/address.service';
+import { IAddress, Address } from 'app/shared/model/address.model';
 
 describe('Service Tests', () => {
-    describe('Company Service', () => {
+    describe('Address Service', () => {
         let injector: TestBed;
-        let service: CompanyService;
+        let service: AddressService;
         let httpMock: HttpTestingController;
-        let elemDefault: ICompany;
+        let elemDefault: IAddress;
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [HttpClientTestingModule]
             });
             injector = getTestBed();
-            service = injector.get(CompanyService);
+            service = injector.get(AddressService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new Company(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
+            elemDefault = new Address(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 0, 0, 'AAAAAAA');
         });
 
         describe('Service methods', async () => {
@@ -36,7 +36,7 @@ describe('Service Tests', () => {
                 req.flush(JSON.stringify(returnedFromService));
             });
 
-            it('should create a Company', async () => {
+            it('should create a Address', async () => {
                 const returnedFromService = Object.assign(
                     {
                         id: 0
@@ -45,18 +45,23 @@ describe('Service Tests', () => {
                 );
                 const expected = Object.assign({}, returnedFromService);
                 service
-                    .create(new Company(null))
+                    .create(new Address(null))
                     .pipe(take(1))
                     .subscribe(resp => expect(resp).toMatchObject({ body: expected }));
                 const req = httpMock.expectOne({ method: 'POST' });
                 req.flush(JSON.stringify(returnedFromService));
             });
 
-            it('should update a Company', async () => {
+            it('should update a Address', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        name: 'BBBBBB',
-                        tags: 'BBBBBB',
+                        address: 'BBBBBB',
+                        city: 'BBBBBB',
+                        state: 'BBBBBB',
+                        country: 'BBBBBB',
+                        phone: 'BBBBBB',
+                        longitude: 1,
+                        latitude: 1,
                         description: 'BBBBBB'
                     },
                     elemDefault
@@ -71,11 +76,16 @@ describe('Service Tests', () => {
                 req.flush(JSON.stringify(returnedFromService));
             });
 
-            it('should return a list of Company', async () => {
+            it('should return a list of Address', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        name: 'BBBBBB',
-                        tags: 'BBBBBB',
+                        address: 'BBBBBB',
+                        city: 'BBBBBB',
+                        state: 'BBBBBB',
+                        country: 'BBBBBB',
+                        phone: 'BBBBBB',
+                        longitude: 1,
+                        latitude: 1,
                         description: 'BBBBBB'
                     },
                     elemDefault
@@ -93,7 +103,7 @@ describe('Service Tests', () => {
                 httpMock.verify();
             });
 
-            it('should delete a Company', async () => {
+            it('should delete a Address', async () => {
                 const rxPromise = service.delete(123).subscribe(resp => expect(resp.ok));
 
                 const req = httpMock.expectOne({ method: 'DELETE' });

@@ -10,6 +10,8 @@
                 "company": "Company",
                 "event": "Event",
                 "config": "Config",
+                "companyGroup": "Company Group",
+                "address": "Address",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

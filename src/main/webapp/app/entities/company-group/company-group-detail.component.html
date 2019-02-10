@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="companyGroup">
+            <h2><span jhiTranslate="eventsApp.companyGroup.detail.title">Company Group</span> {{companyGroup.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eventsApp.companyGroup.name">Name</span></dt>
+                <dd>
+                    <span>{{companyGroup.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="eventsApp.companyGroup.contact_email">Contact Email</span></dt>
+                <dd>
+                    <span>{{companyGroup.contact_email}}</span>
+                </dd>
+                <dt><span jhiTranslate="eventsApp.companyGroup.contact_phone">Contact Phone</span></dt>
+                <dd>
+                    <span>{{companyGroup.contact_phone}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/company-group', companyGroup.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

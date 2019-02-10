@@ -9,34 +9,6 @@
                 <dd>
                     <span>{{company.name}}</span>
                 </dd>
-                <dt><span jhiTranslate="eventsApp.company.address">Address</span></dt>
-                <dd>
-                    <span>{{company.address}}</span>
-                </dd>
-                <dt><span jhiTranslate="eventsApp.company.city">City</span></dt>
-                <dd>
-                    <span>{{company.city}}</span>
-                </dd>
-                <dt><span jhiTranslate="eventsApp.company.state">State</span></dt>
-                <dd>
-                    <span>{{company.state}}</span>
-                </dd>
-                <dt><span jhiTranslate="eventsApp.company.country">Country</span></dt>
-                <dd>
-                    <span>{{company.country}}</span>
-                </dd>
-                <dt><span jhiTranslate="eventsApp.company.phone">Phone</span></dt>
-                <dd>
-                    <span>{{company.phone}}</span>
-                </dd>
-                <dt><span jhiTranslate="eventsApp.company.longitude">Longitude</span></dt>
-                <dd>
-                    <span>{{company.longitude}}</span>
-                </dd>
-                <dt><span jhiTranslate="eventsApp.company.latitude">Latitude</span></dt>
-                <dd>
-                    <span>{{company.latitude}}</span>
-                </dd>
                 <dt><span jhiTranslate="eventsApp.company.tags">Tags</span></dt>
                 <dd>
                     <span>{{company.tags}}</span>
@@ -51,9 +23,17 @@
                         <a [routerLink]="['/event', event?.id, 'view' ]">{{event.name}}</a>{{last ? '' : ', '}}
                     </span>
                 </dd>
-                <dt><span jhiTranslate="eventsApp.company.user">User</span></dt>
+                <dt><span jhiTranslate="eventsApp.company.address">Address</span></dt>
                 <dd>
-                    {{company.user?.login}}
+                    <div *ngIf="company.address">
+                        <a [routerLink]="['/address', company.address?.id, 'view']">{{company.address?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eventsApp.company.companyGroup">Company Group</span></dt>
+                <dd>
+                    <div *ngIf="company.companyGroup">
+                        <a [routerLink]="['/company-group', company.companyGroup?.id, 'view']">{{company.companyGroup?.id}}</a>
+                    </div>
                 </dd>
             </dl>
 

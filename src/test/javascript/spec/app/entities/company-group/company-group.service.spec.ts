@@ -4,24 +4,24 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
-import { CompanyService } from 'app/entities/company/company.service';
-import { ICompany, Company } from 'app/shared/model/company.model';
+import { CompanyGroupService } from 'app/entities/company-group/company-group.service';
+import { ICompanyGroup, CompanyGroup } from 'app/shared/model/company-group.model';
 
 describe('Service Tests', () => {
-    describe('Company Service', () => {
+    describe('CompanyGroup Service', () => {
         let injector: TestBed;
-        let service: CompanyService;
+        let service: CompanyGroupService;
         let httpMock: HttpTestingController;
-        let elemDefault: ICompany;
+        let elemDefault: ICompanyGroup;
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [HttpClientTestingModule]
             });
             injector = getTestBed();
-            service = injector.get(CompanyService);
+            service = injector.get(CompanyGroupService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new Company(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
+            elemDefault = new CompanyGroup(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
         });
 
         describe('Service methods', async () => {
@@ -36,7 +36,7 @@ describe('Service Tests', () => {
                 req.flush(JSON.stringify(returnedFromService));
             });
 
-            it('should create a Company', async () => {
+            it('should create a CompanyGroup', async () => {
                 const returnedFromService = Object.assign(
                     {
                         id: 0
@@ -45,19 +45,19 @@ describe('Service Tests', () => {
                 );
                 const expected = Object.assign({}, returnedFromService);
                 service
-                    .create(new Company(null))
+                    .create(new CompanyGroup(null))
                     .pipe(take(1))
                     .subscribe(resp => expect(resp).toMatchObject({ body: expected }));
                 const req = httpMock.expectOne({ method: 'POST' });
                 req.flush(JSON.stringify(returnedFromService));
             });
 
-            it('should update a Company', async () => {
+            it('should update a CompanyGroup', async () => {
                 const returnedFromService = Object.assign(
                     {
                         name: 'BBBBBB',
-                        tags: 'BBBBBB',
-                        description: 'BBBBBB'
+                        contact_email: 'BBBBBB',
+                        contact_phone: 'BBBBBB'
                     },
                     elemDefault
                 );
@@ -71,12 +71,12 @@ describe('Service Tests', () => {
                 req.flush(JSON.stringify(returnedFromService));
             });
 
-            it('should return a list of Company', async () => {
+            it('should return a list of CompanyGroup', async () => {
                 const returnedFromService = Object.assign(
                     {
                         name: 'BBBBBB',
-                        tags: 'BBBBBB',
-                        description: 'BBBBBB'
+                        contact_email: 'BBBBBB',
+                        contact_phone: 'BBBBBB'
                     },
                     elemDefault
                 );
@@ -93,7 +93,7 @@ describe('Service Tests', () => {
                 httpMock.verify();
             });
 
-            it('should delete a Company', async () => {
+            it('should delete a CompanyGroup', async () => {
                 const rxPromise = service.delete(123).subscribe(resp => expect(resp.ok));
 
                 const req = httpMock.expectOne({ method: 'DELETE' });

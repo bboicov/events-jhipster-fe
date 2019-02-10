@@ -40,26 +40,13 @@ describe('Company e2e test', () => {
         await companyComponentsPage.clickOnCreateButton();
         await promise.all([
             companyUpdatePage.setNameInput('name'),
-            companyUpdatePage.setAddressInput('address'),
-            companyUpdatePage.setCityInput('city'),
-            companyUpdatePage.setStateInput('state'),
-            companyUpdatePage.setCountryInput('country'),
-            companyUpdatePage.setPhoneInput('phone'),
-            companyUpdatePage.setLongitudeInput('5'),
-            companyUpdatePage.setLatitudeInput('5'),
             companyUpdatePage.setTagsInput('tags'),
             companyUpdatePage.setDescriptionInput('description'),
             // companyUpdatePage.eventSelectLastOption(),
-            companyUpdatePage.userSelectLastOption()
+            companyUpdatePage.addressSelectLastOption(),
+            companyUpdatePage.companyGroupSelectLastOption()
         ]);
         expect(await companyUpdatePage.getNameInput()).to.eq('name');
-        expect(await companyUpdatePage.getAddressInput()).to.eq('address');
-        expect(await companyUpdatePage.getCityInput()).to.eq('city');
-        expect(await companyUpdatePage.getStateInput()).to.eq('state');
-        expect(await companyUpdatePage.getCountryInput()).to.eq('country');
-        expect(await companyUpdatePage.getPhoneInput()).to.eq('phone');
-        expect(await companyUpdatePage.getLongitudeInput()).to.eq('5');
-        expect(await companyUpdatePage.getLatitudeInput()).to.eq('5');
         expect(await companyUpdatePage.getTagsInput()).to.eq('tags');
         expect(await companyUpdatePage.getDescriptionInput()).to.eq('description');
         await companyUpdatePage.save();

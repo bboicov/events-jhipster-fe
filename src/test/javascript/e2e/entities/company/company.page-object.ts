@@ -27,17 +27,11 @@ export class CompanyUpdatePage {
     saveButton = element(by.id('save-entity'));
     cancelButton = element(by.id('cancel-save'));
     nameInput = element(by.id('field_name'));
-    addressInput = element(by.id('field_address'));
-    cityInput = element(by.id('field_city'));
-    stateInput = element(by.id('field_state'));
-    countryInput = element(by.id('field_country'));
-    phoneInput = element(by.id('field_phone'));
-    longitudeInput = element(by.id('field_longitude'));
-    latitudeInput = element(by.id('field_latitude'));
     tagsInput = element(by.id('field_tags'));
     descriptionInput = element(by.id('field_description'));
     eventSelect = element(by.id('field_event'));
-    userSelect = element(by.id('field_user'));
+    addressSelect = element(by.id('field_address'));
+    companyGroupSelect = element(by.id('field_companyGroup'));
 
     async getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
@@ -49,62 +43,6 @@ export class CompanyUpdatePage {
 
     async getNameInput() {
         return this.nameInput.getAttribute('value');
-    }
-
-    async setAddressInput(address) {
-        await this.addressInput.sendKeys(address);
-    }
-
-    async getAddressInput() {
-        return this.addressInput.getAttribute('value');
-    }
-
-    async setCityInput(city) {
-        await this.cityInput.sendKeys(city);
-    }
-
-    async getCityInput() {
-        return this.cityInput.getAttribute('value');
-    }
-
-    async setStateInput(state) {
-        await this.stateInput.sendKeys(state);
-    }
-
-    async getStateInput() {
-        return this.stateInput.getAttribute('value');
-    }
-
-    async setCountryInput(country) {
-        await this.countryInput.sendKeys(country);
-    }
-
-    async getCountryInput() {
-        return this.countryInput.getAttribute('value');
-    }
-
-    async setPhoneInput(phone) {
-        await this.phoneInput.sendKeys(phone);
-    }
-
-    async getPhoneInput() {
-        return this.phoneInput.getAttribute('value');
-    }
-
-    async setLongitudeInput(longitude) {
-        await this.longitudeInput.sendKeys(longitude);
-    }
-
-    async getLongitudeInput() {
-        return this.longitudeInput.getAttribute('value');
-    }
-
-    async setLatitudeInput(latitude) {
-        await this.latitudeInput.sendKeys(latitude);
-    }
-
-    async getLatitudeInput() {
-        return this.latitudeInput.getAttribute('value');
     }
 
     async setTagsInput(tags) {
@@ -142,23 +80,42 @@ export class CompanyUpdatePage {
         return this.eventSelect.element(by.css('option:checked')).getText();
     }
 
-    async userSelectLastOption() {
-        await this.userSelect
+    async addressSelectLastOption() {
+        await this.addressSelect
             .all(by.tagName('option'))
             .last()
             .click();
     }
 
-    async userSelectOption(option) {
-        await this.userSelect.sendKeys(option);
+    async addressSelectOption(option) {
+        await this.addressSelect.sendKeys(option);
     }
 
-    getUserSelect(): ElementFinder {
-        return this.userSelect;
+    getAddressSelect(): ElementFinder {
+        return this.addressSelect;
     }
 
-    async getUserSelectedOption() {
-        return this.userSelect.element(by.css('option:checked')).getText();
+    async getAddressSelectedOption() {
+        return this.addressSelect.element(by.css('option:checked')).getText();
+    }
+
+    async companyGroupSelectLastOption() {
+        await this.companyGroupSelect
+            .all(by.tagName('option'))
+            .last()
+            .click();
+    }
+
+    async companyGroupSelectOption(option) {
+        await this.companyGroupSelect.sendKeys(option);
+    }
+
+    getCompanyGroupSelect(): ElementFinder {
+        return this.companyGroupSelect;
+    }
+
+    async getCompanyGroupSelectedOption() {
+        return this.companyGroupSelect.element(by.css('option:checked')).getText();
     }
 
     async save() {
