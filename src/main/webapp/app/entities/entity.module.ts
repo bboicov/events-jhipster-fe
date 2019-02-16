@@ -5,6 +5,7 @@ import { EventsEventModule } from './event/event.module';
 import { EventsConfigModule } from './config/config.module';
 import { EventsCompanyGroupModule } from './company-group/company-group.module';
 import { EventsAddressModule } from './address/address.module';
+import { EventsUserInfoModule } from './user-info/user-info.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -15,6 +16,7 @@ import { EventsAddressModule } from './address/address.module';
         EventsConfigModule,
         EventsCompanyGroupModule,
         EventsAddressModule,
+        EventsUserInfoModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],
