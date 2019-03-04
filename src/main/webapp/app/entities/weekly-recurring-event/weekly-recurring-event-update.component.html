@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-weekly-recurring-event-heading" jhiTranslate="eventsApp.weeklyRecurringEvent.home.createOrEditLabel">Create or edit a Weekly Recurring Event</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!weeklyRecurringEvent.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="weeklyRecurringEvent.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eventsApp.weeklyRecurringEvent.dayOfWeek" for="field_dayOfWeek">Day Of Week</label>
+                    <input type="number" class="form-control" name="dayOfWeek" id="field_dayOfWeek"
+                        [(ngModel)]="weeklyRecurringEvent.dayOfWeek" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eventsApp.weeklyRecurringEvent.start" for="field_start">Start</label>
+                    <div class="d-flex">
+                        <input id="field_start" type="datetime-local" class="form-control" name="start" [(ngModel)]="start"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eventsApp.weeklyRecurringEvent.end" for="field_end">End</label>
+                    <div class="d-flex">
+                        <input id="field_end" type="datetime-local" class="form-control" name="end" [(ngModel)]="end"
+                        />
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+{
+    "eventsApp": {
+        "monthlyRecurringEvent": {
+            "home": {
+                "title": "Monthly Recurring Events",
+                "createLabel": "Create a new Monthly Recurring Event",
+                "createOrEditLabel": "Create or edit a Monthly Recurring Event",
+                "search": "Search for Monthly Recurring Event"
+            },
+            "created": "A new Monthly Recurring Event is created with identifier {{ param }}",
+            "updated": "A Monthly Recurring Event is updated with identifier {{ param }}",
+            "deleted": "A Monthly Recurring Event is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Monthly Recurring Event {{ id }}?"
+            },
+            "detail": {
+                "title": "Monthly Recurring Event"
+            },
+            "dayOfMonth": "Day Of Month",
+            "start": "Start",
+            "end": "End"
+        }
+    }
+}

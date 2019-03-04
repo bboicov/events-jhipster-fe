@@ -41,11 +41,13 @@ describe('Config e2e test', () => {
         await promise.all([
             configUpdatePage.setKeyInput('key'),
             configUpdatePage.setValueInput('value'),
-            configUpdatePage.setAuthorityInput('authority')
+            configUpdatePage.setAuthorityInput('authority'),
+            configUpdatePage.setPositionInput('5')
         ]);
         expect(await configUpdatePage.getKeyInput()).to.eq('key');
         expect(await configUpdatePage.getValueInput()).to.eq('value');
         expect(await configUpdatePage.getAuthorityInput()).to.eq('authority');
+        expect(await configUpdatePage.getPositionInput()).to.eq('5');
         await configUpdatePage.save();
         expect(await configUpdatePage.getSaveButton().isPresent()).to.be.false;
 

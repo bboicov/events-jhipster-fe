@@ -6,6 +6,9 @@ import { EventsConfigModule } from './config/config.module';
 import { EventsCompanyGroupModule } from './company-group/company-group.module';
 import { EventsAddressModule } from './address/address.module';
 import { EventsUserInfoModule } from './user-info/user-info.module';
+import { EventsMonthlyRecurringEventModule } from './monthly-recurring-event/monthly-recurring-event.module';
+import { EventsOneTimeEventModule } from './one-time-event/one-time-event.module';
+import { EventsWeeklyRecurringEventModule } from './weekly-recurring-event/weekly-recurring-event.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -17,6 +20,9 @@ import { EventsUserInfoModule } from './user-info/user-info.module';
         EventsCompanyGroupModule,
         EventsAddressModule,
         EventsUserInfoModule,
+        EventsMonthlyRecurringEventModule,
+        EventsOneTimeEventModule,
+        EventsWeeklyRecurringEventModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

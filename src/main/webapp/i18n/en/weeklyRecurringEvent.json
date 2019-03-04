@@ -1,0 +1,24 @@
+{
+    "eventsApp": {
+        "weeklyRecurringEvent": {
+            "home": {
+                "title": "Weekly Recurring Events",
+                "createLabel": "Create a new Weekly Recurring Event",
+                "createOrEditLabel": "Create or edit a Weekly Recurring Event",
+                "search": "Search for Weekly Recurring Event"
+            },
+            "created": "A new Weekly Recurring Event is created with identifier {{ param }}",
+            "updated": "A Weekly Recurring Event is updated with identifier {{ param }}",
+            "deleted": "A Weekly Recurring Event is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Weekly Recurring Event {{ id }}?"
+            },
+            "detail": {
+                "title": "Weekly Recurring Event"
+            },
+            "dayOfWeek": "Day Of Week",
+            "start": "Start",
+            "end": "End"
+        }
+    }
+}

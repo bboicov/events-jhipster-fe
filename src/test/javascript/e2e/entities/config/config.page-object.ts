@@ -29,6 +29,7 @@ export class ConfigUpdatePage {
     keyInput = element(by.id('field_key'));
     valueInput = element(by.id('field_value'));
     authorityInput = element(by.id('field_authority'));
+    positionInput = element(by.id('field_position'));
 
     async getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
@@ -56,6 +57,14 @@ export class ConfigUpdatePage {
 
     async getAuthorityInput() {
         return this.authorityInput.getAttribute('value');
+    }
+
+    async setPositionInput(position) {
+        await this.positionInput.sendKeys(position);
+    }
+
+    async getPositionInput() {
+        return this.positionInput.getAttribute('value');
     }
 
     async save() {

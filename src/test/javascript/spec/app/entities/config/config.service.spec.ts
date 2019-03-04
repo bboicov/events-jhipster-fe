@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(ConfigService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new Config(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
+            elemDefault = new Config(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 0);
         });
 
         describe('Service methods', async () => {
@@ -57,7 +57,8 @@ describe('Service Tests', () => {
                     {
                         key: 'BBBBBB',
                         value: 'BBBBBB',
-                        authority: 'BBBBBB'
+                        authority: 'BBBBBB',
+                        position: 1
                     },
                     elemDefault
                 );
@@ -76,7 +77,8 @@ describe('Service Tests', () => {
                     {
                         key: 'BBBBBB',
                         value: 'BBBBBB',
-                        authority: 'BBBBBB'
+                        authority: 'BBBBBB',
+                        position: 1
                     },
                     elemDefault
                 );

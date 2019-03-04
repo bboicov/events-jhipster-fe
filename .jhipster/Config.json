@@ -20,6 +20,10 @@
         {
             "fieldName": "authority",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "position",
+            "fieldType": "Integer"
         }
     ],
     "changelogDate": "20190120183548",
@@ -27,6 +31,7 @@
     "searchEngine": "elasticsearch",
     "service": "serviceClass",
     "entityTableName": "config",
+    "databaseType": "sql",
     "jpaMetamodelFiltering": false,
     "pagination": "no"
 }

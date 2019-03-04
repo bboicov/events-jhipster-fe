@@ -1,0 +1,22 @@
+{
+    "eventsApp": {
+        "oneTimeEvent": {
+            "home": {
+                "title": "One Time Events",
+                "createLabel": "Create a new One Time Event",
+                "createOrEditLabel": "Create or edit a One Time Event",
+                "search": "Search for One Time Event"
+            },
+            "created": "A new One Time Event is created with identifier {{ param }}",
+            "updated": "A One Time Event is updated with identifier {{ param }}",
+            "deleted": "A One Time Event is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete One Time Event {{ id }}?"
+            },
+            "detail": {
+                "title": "One Time Event"
+            },
+            "when": "When"
+        }
+    }
+}

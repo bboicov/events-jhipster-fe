@@ -13,6 +13,9 @@
                 "companyGroup": "Company Group",
                 "address": "Address",
                 "userInfo": "User Info",
+                "monthlyRecurringEvent": "Monthly Recurring Event",
+                "oneTimeEvent": "One Time Event",
+                "weeklyRecurringEvent": "Weekly Recurring Event",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
